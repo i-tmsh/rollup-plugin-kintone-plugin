@@ -30,7 +30,7 @@ export default function kintonePlugin(options: Partial<Option> = {}): Plugin {
       }
       privateKey = fs.readFileSync(privateKeyPath, 'utf-8');
     },
-    async buildEnd() {
+    async writeBundle() {
       const result = await packPluginFromManifest(manifestJSONPath, privateKey);
       const zipPath =
         typeof pluginZipPath == 'function'
